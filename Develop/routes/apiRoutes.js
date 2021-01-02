@@ -35,26 +35,25 @@ module.exports = function (app) {
         });
     });
 
-    app.delete("/api/notes/:id", (req, res) => {
+    app.delete('/api/notes/:id', (req, res) => {
         let noteData = {};
-        fs.readFile("./db/db.json", "utf8", function (err, data) {
+        fs.readFile('./db/db.json', 'utf8', function (err, data) {
             if (err) {
                 throw err;
             }
-
-            let notesData = JSON.parse(data);
+            noteData = JSON.parse(data);
             const found = noteData.some(note => note.id === (req.params.id));
 
             if (found) {
-                const newNotes = notesData.filter(note => note.id !== (req.params.id))
-                fs.writeFile("./db/db.json", JSON.stringify(newNotes), (err) => {
+                const newNotes = noteData.filter(note => note.id !== (req.params.id))
+                fs.writeFile('./db/db.json', JSON.stringify(newNotes), (err) => {
 
                     if (err) throw err
 
                 })
 
                 res.json({
-                    msg: "Note deleted",
+                    msg: 'Note deleted',
                     notes: newNotes
                 });
             }
@@ -63,4 +62,5 @@ module.exports = function (app) {
             }
         });
     });
+
 };
