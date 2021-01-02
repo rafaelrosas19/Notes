@@ -15,7 +15,7 @@ https://rafaelrosas19.github.io/
 
 ## Usage
 
-Click on the Get Started button and start taking some notes!
+Click on the Get Started button and start taking some notes! Click the save icon to save your note and click the garbage can icon to delete a note that you don't need anymore. 
 
 ## Credits 
 
